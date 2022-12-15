@@ -1,4 +1,4 @@
-# ALVEA Technical ⚡
+# PODCAST ⚡
 
 ## Project:
 - 100 Better podcasts items:
@@ -24,4 +24,3 @@
 ```shell
     yarn start
 ```
-
