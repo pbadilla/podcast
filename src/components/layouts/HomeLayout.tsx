@@ -5,11 +5,30 @@ import { PodcastCard } from '../shared/PodcastCard';
 
 import { Outlet } from 'react-router-dom';
 
+import * as SC from './HomeLayout.styles';
+
 export const HomeLayout = () => {
   return (
     <main>
       <Header />
-      <PodcastCard />
+      <SC.LayoutCards>
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+        <PodcastCard />
+      </SC.LayoutCards>
       <Outlet />
     </main>
   )

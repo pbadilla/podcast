@@ -2,11 +2,17 @@ import React from 'react';
 
 import { Search } from './shared/Search';
 
+import * as SC from './Header.styles'
+
 export const Header = () => {
     return (
-        <div style={{ textAlign: 'center' }}>
+      <>
+        <SC.Header>
             <h1>Podcaster</h1>
-            <Search />
-        </div>
+        </SC.Header>
+        <SC.Search>
+          <Search />
+        </SC.Search>
+      </>
     )
 }

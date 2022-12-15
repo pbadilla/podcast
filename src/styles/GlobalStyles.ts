@@ -74,4 +74,10 @@ export const GlobalStyles = createGlobalStyle`
       transition: var(--transition);
     }
   }
+
+  main {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 1024px;
+  }
 `;
