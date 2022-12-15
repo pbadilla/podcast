@@ -13,11 +13,12 @@ export const Header = styled.div`
 `;
 
 export const Search = styled.div`
-  align-items: center;
+  align-items: flex-end;
+  align-content: flex-end
   display: flex;
   flex-direction: row;
-  align-content: flex-end;
   margin: 1rem 0;
+  width: 100%;
   h1 {
     font-size: 1rem;
     color: blue;

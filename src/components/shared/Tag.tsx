@@ -1,9 +1,9 @@
 import React from 'react';
 
+import * as SC from './Tag.styles';
+
 export const Tag = () => {
     return (
-        <div style={{ textAlign: 'center' }}>
-            Number items
-        </div>
+        <SC.Tag>100</SC.Tag>
     )
 }

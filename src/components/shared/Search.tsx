@@ -3,11 +3,13 @@ import React from 'react';
 import { Tag } from './Tag';
 import { SearchInput } from './SearchInput';
 
+import * as SC from './Search.styles';
+
 export const Search = () => {
     return (
-        <div style={{ textAlign: 'center' }}>
+        <SC.Search>
             <Tag />
             <SearchInput />
-        </div>
+        </SC.Search>
     )
 }
