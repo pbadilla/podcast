@@ -1,6 +1,5 @@
 import React from 'react';
-
-import { Search } from './shared/Search';
+import Loader from '../components/shared/Loader';
 
 import * as SC from './Header.styles'
 
@@ -11,8 +10,11 @@ export const Header = () => {
             <h1>Podcaster</h1>
         </SC.Header>
         <SC.Search>
-          <Search />
+          <div>
+            <Loader message='Esperando datos ...' />
+          </div>
         </SC.Search>
+
       </>
     )
 }

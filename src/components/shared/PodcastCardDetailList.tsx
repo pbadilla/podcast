@@ -1,21 +1,48 @@
 import React, { useEffect, useState } from 'react';
 
+import { Link } from "react-router-dom";
 import DataTable from 'react-data-table-component';
 
 import { PodcastCardDetailTitle } from '../shared/PodcastCardDetailTitle';
 
-import { columnsEpisodes } from '../../configs/config';
 import { dataPodcast } from '../../mockups/constants';
 import { IdataPodcast } from '../../typings/types';
 
 import * as SC from './PodcastCardDetailList.styles';
 
-export const PodcastCardDetailList = () => {
-  const [listData, setListData] = useState<IdataPodcast | any>();
+export interface iEpisodePodcast {
+  date: string;
+  duration: number;
+  name: string;
+}
+
+export const PodcastCardDetailList = (dataParam: iEpisodePodcast) => {
+  const [listData, setListData] = useState<iEpisodePodcast | any>(dataParam);
 
   useEffect(() => {
     setListData(dataPodcast)
   }, [dataPodcast])
+
+ const columnsEpisodes = [
+    {
+      name: 'Title',
+      cell: () => <Link to="/podcast/1/episode/1">{dataParam.name}</Link>,
+      ignoreRowClick: true,
+      allowOverflow: true,
+      button: true,
+    },
+    {
+      name: 'Date',
+      selector: (row: { date: any; }) => row.date,
+      sortable: true
+    },
+    {
+      name: 'Duration',
+      selector: (row: { duration: any; }) => row.duration,
+      sortable: true
+    }
+  ]
+
     return (
         <div>
             <PodcastCardDetailTitle />

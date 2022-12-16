@@ -3,13 +3,21 @@ import { Link } from "react-router-dom";
 
 import * as SC from './PodcastCard.styles';
 
-export const PodcastCard = () => {
+export interface iDataPodcast {
+  artist: string;
+  image: string;
+  name: string;
+  index: number;
+}
+
+export const PodcastCard = (dataParam: iDataPodcast) => {
+    const { artist, image, name, index } = dataParam;
     return (
-        <Link to="/podcast/1">
-            <img src="../../img/default.png" alt="" />
+        <Link to={`/podcast/${index}`}>
+            <SC.Image src={image} alt={artist}/>
             <SC.Cards>
-                <h2>Title Podcast</h2>
-                <p>Author: nombredelautor</p>
+                <h2>{name}</h2>
+                <p>Author: {artist}</p>
             </SC.Cards>
         </Link>
     )

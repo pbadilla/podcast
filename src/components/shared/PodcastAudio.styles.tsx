@@ -1,10 +1,11 @@
 import styled from 'styled-components';
 
-export const Cards = styled.div`
-  border: 1px solid rgba(194,188,194,1);
+export const AudioCard = styled.div`
+  border: 1px solid rgba(194,188,194,.3);
   box-shadow: 2px 3px 4px 0px rgba(194,188,194,1);
   min-height: 120px;
-  padding-bottom: 20px;
+  padding: 20px;
+  text-align: left;
   width: 100%;
   h2 {
     color: black;
@@ -16,12 +17,11 @@ export const Cards = styled.div`
   }
   p {
     font-size: .8rem;
+    padding: .5rem 0 2rem;
   }
-`;
-
-export const Image = styled.img`
-  border-radius: 50%;
-  position: relative;
-  top: 80px;
-  width: 170px;
+  audio {
+    background-color: black;
+    color: white;
+    width: 100%;
+  }
 `;

@@ -19,9 +19,5 @@ export const Search = styled.div`
   flex-direction: row;
   margin: 1rem 0;
   width: 100%;
-  h1 {
-    font-size: 1rem;
-    color: blue;
-  }
 `;
 
