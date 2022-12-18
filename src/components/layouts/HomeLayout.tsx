@@ -25,7 +25,6 @@ interface List {
 
 export const HomeLayout = () => {
   const [query, setQuery] = useState("");
-  const [numPodcast, setNumPodcast] = useState<number>();
   const [ unFilteredPodcasts, setUnFilteredPodcasts ] = useState([]);
 
   const podcasts = useSelector(getAllPodcasts);
@@ -40,7 +39,10 @@ export const HomeLayout = () => {
       dispatch(allPodcastsRecieved(apiResponse.data));
     };
 
-    invokeAllPodcastsAPI();
+    console.log('%c Podcast inside useEffect > ', 'color: #007acc;', podcasts);
+    if(podcasts.length === 0) {
+      invokeAllPodcastsAPI();
+    }
     setUnFilteredPodcasts(podcasts);
   }, [dispatch]);
 
