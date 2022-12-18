@@ -13,13 +13,14 @@ export interface iEpisodePodcast {
   date: string;
   duration: number;
   name: string;
+  idState: string;
 }
 
 export const PodcastCardDetailList = (dataParam: [iEpisodePodcast]) => {
   const [listData, setListData] = useState<iEpisodePodcast | any>();
 
   useEffect(() => {
-    const { date, duration, name } = dataParam;
+    const { date, duration, name, idState } = dataParam;
     const dateTransformed = transformDate(date);
     const time = millisToMinutesAndSeconds(duration);
 
@@ -29,7 +30,7 @@ export const PodcastCardDetailList = (dataParam: [iEpisodePodcast]) => {
  const columnsEpisodes = [
     {
       name: 'Title',
-      cell: () => <Link to="/podcast/1/episode/1">{dataParam.name}</Link>,
+      cell: () => <Link to={`/podcast/${dataParam.idState}/episode/1`}>{dataParam.name}</Link>,
       ignoreRowClick: true,
       allowOverflow: true,
       width: "60%",

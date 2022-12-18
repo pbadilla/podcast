@@ -3,11 +3,19 @@ import React from 'react';
 import { PodcastCardDetailTitle } from '../card/PodcastCardDetailTitle';
 import { PodcastAudio } from '../audio/PodcastAudio';
 
-export const PodcastEpisode = () => {
+export interface iDetailPodcast {
+  artist: string;
+  image: string;
+  name: string;
+  index: number;
+  description: string;
+};
+
+export const PodcastEpisode = (dataParam: iDetailPodcast) => {
     return (
         <div style={{ textAlign: 'center' }}>
-            <PodcastCardDetailTitle />
-            <PodcastAudio />
+            <PodcastCardDetailTitle title={dataParam.name}/>
+            <PodcastAudio options={dataParam} />
         </div>
     )
 }

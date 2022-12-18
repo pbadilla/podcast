@@ -35,12 +35,19 @@ export const PodcastsLayout = () => {
     }
   }, [dispatch]);
 
+  const paramsReceived = {...idPodcasts[0]};
+
+  const paramsToDetail = {
+      ...paramsReceived,
+      idState: id
+  }
+
   return (
     <main>
       <Header isLoaded={ apiStatus === "pending" ? true : false } />
       <SC.LayoutPodcast>
         <PodcastCardDetail {...detailPodcast} />
-        {idPodcasts.length > 0 && <PodcastCardDetailList {...idPodcasts[0]} />}
+        {idPodcasts.length > 0 && <PodcastCardDetailList {...paramsToDetail} />}
       </SC.LayoutPodcast>
       <Outlet />
     </main>

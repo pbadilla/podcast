@@ -11,10 +11,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 
 export function EpisodeLayout() {
-  let { id } = useParams();
+  console.log('%c', 'color: #007acc;', useParams());
+  let { idPod, id } = useParams();
 
   const idFromContext = useSelector((state) => state.podcast)
-  const detailPodcast = idFromContext.podcastsData[id];
+  const detailPodcast = idFromContext.podcastsData[idPod];
   const idPodcast = detailPodcast?.id;
 
   const idPodcasts = useSelector(getByIdPodcastRecieved);
@@ -32,12 +33,13 @@ export function EpisodeLayout() {
       invokeIdPodcastsAPI();
     }
   }, [dispatch]);
+
   return (
     <main>
     <Header />
       <SC.LayoutPodcast>
         <PodcastCardDetail {...detailPodcast} />
-        <PodcastEpisode />
+        <PodcastEpisode  {...detailPodcast} />
       </SC.LayoutPodcast>
     <Outlet />
     </main>
