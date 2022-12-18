@@ -15,9 +15,9 @@ import { Outlet } from 'react-router-dom';
 export const PodcastsLayout = () => {
   let { id } = useParams();
 
-  const userFromContext = useSelector((state) => state.podcast)
-  const currentUser = userFromContext.podcastsData[id];
-  const idPodcast = currentUser?.id;
+  const idFromContext = useSelector((state) => state.podcast)
+  const detailPodcast = idFromContext.podcastsData[id];
+  const idPodcast = detailPodcast?.id;
 
   const idPodcasts = useSelector(getByIdPodcastRecieved);
   const apiStatus = useSelector(getLoading);
@@ -30,14 +30,16 @@ export const PodcastsLayout = () => {
       const apiResponse = await axios.get(`http://api.allorigins.win/get?url=${encodeURIComponent('https://itunes.apple.com/lookup?id=')}${idPodcast}`);
       dispatch(idPodcastRecieved(apiResponse.data));
     };
-    invokeIdPodcastsAPI();
+    if(idPodcasts.length === 0) {
+      invokeIdPodcastsAPI();
+    }
   }, [dispatch]);
 
   return (
     <main>
       <Header isLoaded={ apiStatus === "pending" ? true : false } />
       <SC.LayoutPodcast>
-        <PodcastCardDetail {...currentUser} />
+        <PodcastCardDetail {...detailPodcast} />
         {idPodcasts.length > 0 && <PodcastCardDetailList {...idPodcasts[0]} />}
       </SC.LayoutPodcast>
       <Outlet />
