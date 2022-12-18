@@ -1,3 +1,4 @@
+import { useRowSelect } from 'react-table';
 import styled from 'styled-components';
 
 export const LayoutCards = styled.div`
@@ -13,8 +14,13 @@ export const WrapperSkeleton = styled.span`
   [aria-live='polite'] {
       display: flex;
       flex-direction: row;
-      widrth: 100
+      width: 100%;
     }
+`;
+
+export const SkeletonSearch = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 export const Search = styled.div`

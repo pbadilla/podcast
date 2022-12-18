@@ -11,6 +11,8 @@ import { Header } from '../shared/header/Header';
 import { PodcastCard } from '../shared/card/PodcastCard';
 import { Tag } from '../shared/tag/Tag';
 
+import { filtered } from '../../utils/utils';
+
 import * as SC from './HomeLayout.styles';
 
 interface List {
@@ -46,14 +48,25 @@ export const HomeLayout = () => {
     return <span style={{ marginRight: '0.5rem' }}>{children}</span>
 }
 
-  let count = 0;
-
   return (
     <main>
       <Header isLoaded={ apiStatus === "pending" ? true : false } />
       <SC.Search >
-        <Tag podcasts={count} />
-        <SC.Input placeholder="Filter Podcast by Title" onChange={event => setQuery(event.target.value)} isLoaded={ apiStatus === "pending" ? 'disabled' : null } />
+        { (apiStatus === "pending" && unFilteredPodcasts)
+        ? (
+          <>
+            <SC.SkeletonSearch>
+              <Skeleton count={1} width={20} height={20} circle/>
+              <Skeleton count={1} width={150} height={20}/>
+            </SC.SkeletonSearch>
+          </>
+          )
+        : (
+          <>
+            <Tag podcasts={filtered(unFilteredPodcasts,query)} />
+            <SC.Input placeholder="Filter Podcast by Title" onChange={event => setQuery(event.target.value)} isLoaded={ apiStatus === "pending" ? 'disabled' : null } />
+          </>
+        )}
       </SC.Search>
       <SC.LayoutCards>
         { (apiStatus === "pending" && unFilteredPodcasts)
