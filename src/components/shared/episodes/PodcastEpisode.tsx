@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { PodcastCardDetailTitle } from './PodcastCardDetailTitle';
-import { PodcastAudio } from './PodcastAudio';
+import { PodcastCardDetailTitle } from '../card/PodcastCardDetailTitle';
+import { PodcastAudio } from '../audio/PodcastAudio';
 
 export const PodcastEpisode = () => {
     return (

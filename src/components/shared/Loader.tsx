@@ -1,24 +1,12 @@
 import React, { useState } from 'react'
-import {ClipLoader} from "react-spinners";
+import {BounceLoader} from "react-spinners";
 
-const Loader = ( message: string ) => {
-  let [loading, setLoading] = useState(true);
-  let [color, setColor] = useState("#ffffff");
+const Loader = () => {
+  let [color, setColor] = useState("#4c8dc8");
 
-    return loading ? (
-        <div className='overlay-content'>
-            <div className='wrapper'>
-                <ClipLoader
-                  size={30}
-                  color={color}
-                  loading={loading}
-                />
-                <span className='message'>
-                    {message}
-                </span>
-            </div>
-        </div>
-    ) : null
+  return (
+    <BounceLoader color={color} size={20} />
+  )
 };
 
 export default Loader;

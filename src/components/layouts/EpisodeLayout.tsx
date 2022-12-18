@@ -2,9 +2,9 @@ import React from 'react';
 
 import { Outlet } from 'react-router-dom';
 
-import { Header } from '../Header';
-import { PodcastCardDetail } from '../shared/PodcastCardDetail';
-import { PodcastEpisode } from '../shared/PodcastEpisode';
+import { Header } from '../shared/header/Header';
+import { PodcastCardDetail } from '../shared/card/PodcastCardDetail';
+import { PodcastEpisode } from '../shared/episodes/PodcastEpisode';
 
 import * as SC from './PodcastsLayout.styles';
 

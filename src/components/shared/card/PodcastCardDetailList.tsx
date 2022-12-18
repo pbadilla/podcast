@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import moment from "moment";
 
 import { Link } from "react-router-dom";
 import DataTable from 'react-data-table-component';
 
-import { PodcastCardDetailTitle } from '../shared/PodcastCardDetailTitle';
-
-import { dataPodcast } from '../../mockups/constants';
-import { IdataPodcast } from '../../typings/types';
+import { PodcastCardDetailTitle } from './PodcastCardDetailTitle';
 
 import * as SC from './PodcastCardDetailList.styles';
 
@@ -16,12 +14,16 @@ export interface iEpisodePodcast {
   name: string;
 }
 
-export const PodcastCardDetailList = (dataParam: iEpisodePodcast) => {
-  const [listData, setListData] = useState<iEpisodePodcast | any>(dataParam);
+export const PodcastCardDetailList = (dataParam: [iEpisodePodcast]) => {
+  const [listData, setListData] = useState<iEpisodePodcast | any>();
+
+  let [date, time] = new Date().toLocaleString('en-US', {hour12: false})
 
   useEffect(() => {
-    setListData(dataPodcast)
-  }, [dataPodcast])
+    // moment(date).utc().format('YYYY-MM-DD');
+    // time
+    setListData([dataParam])
+  }, [dataParam])
 
  const columnsEpisodes = [
     {

@@ -7,3 +7,25 @@ export const LayoutCards = styled.div`
   max-width: 1080px;
   width: 1080px;
 `;
+
+export const WrapperSkeleton = styled.span`
+  margin-top: 50px;
+  [aria-live='polite'] {
+      display: flex;
+      flex-direction: row;
+      widrth: 100
+    }
+`;
+
+export const Search = styled.div`
+  align-items: flex-end;
+  justify-content: flex-end;
+  display: flex;
+  flex-direction: row;
+`;
+
+export const Input = styled.input`
+  border: 1px solid rgba(194,188,194,1);
+  line-height: 18px;
+  padding: 2px 5px;
+`

@@ -9,15 +9,17 @@ export const Header = styled.div`
   h1 {
     font-size: 1rem;
     color: blue;
+    text-align: left;
+    width: 98%;
   }
 `;
 
-export const Search = styled.div`
-  align-items: flex-end;
-  align-content: flex-end
+export const Loader = styled.div`
   display: flex;
+  display: ${props => props.visibility? 'block': 'none'}
   flex-direction: row;
+  justify-content: flex-end;
   margin: 1rem 0;
-  width: 100%;
+  width: 20px;
 `;
 

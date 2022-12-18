@@ -12,6 +12,7 @@ export interface iDataPodcast {
 
 export const PodcastCard = (dataParam: iDataPodcast) => {
     const { artist, image, name, index } = dataParam;
+    console.log('%c', 'color: #007acc;', index);
     return (
         <Link to={`/podcast/${index}`}>
             <SC.Image src={image} alt={artist}/>
