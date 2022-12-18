@@ -5,13 +5,13 @@ import { Outlet } from 'react-router-dom';
 import Skeleton from 'react-loading-skeleton';
 import 'react-loading-skeleton/dist/skeleton.css';
 
-import { getAllPodcasts, getLoading, allPodcastsLoading, allPodcastsRecieved } from "../../redux/features/podcastSlice";
+import { getAllPodcasts, getLoading, allPodcastsLoading, allPodcastsRecieved } from "../../../redux/features/podcastSlice";
 
-import { Header } from '../shared/header/Header';
-import { PodcastCard } from '../shared/card/PodcastCard';
-import { Tag } from '../shared/tag/Tag';
+import { Header } from '../../shared/header/Header';
+import { PodcastCard } from '../../shared/card/PodcastCard';
+import { Tag } from '../../shared/tag/Tag';
 
-import { filtered } from '../../utils/utils';
+import { filtered } from '../../../utils/utils';
 
 import * as SC from './HomeLayout.styles';
 

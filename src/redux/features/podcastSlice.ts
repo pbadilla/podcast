@@ -45,7 +45,7 @@ function mapData (entriesParam) {
 }
 
 function mapDataId (idDataParam) {
-  let dataIdPodcast: { date: any; name: any; duration: any; }[] = [];
+  let dataIdPodcast: { date: string; name: string; duration: string; }[] = [];
   dataIdPodcast.push({
     date: idDataParam.releaseDate,
     name: idDataParam.trackName,

@@ -1,16 +1,18 @@
 import React, { useEffect } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
-import { getLoading, idPodcastRecieved, getByIdPodcastRecieved, idPodcastLoading } from "../../redux/features/podcastSlice";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { getLoading, idPodcastRecieved, getByIdPodcastRecieved, idPodcastLoading } from "../../../redux/features/podcastSlice";
 
-import { Header } from '../shared/header/Header';
-import { PodcastCardDetail } from '../shared/card/PodcastCardDetail';
-import { PodcastEpisode } from '../shared/episodes/PodcastEpisode';
+import { Header } from '../../shared/header/Header';
+import { PodcastCardDetail } from '../../shared/card/PodcastCardDetail';
+import { PodcastCardDetailList } from '../../shared/card/PodcastCardDetailList';
 
 import * as SC from './PodcastsLayout.styles';
-import { useDispatch, useSelector } from 'react-redux';
-import axios from 'axios';
 
-export function EpisodeLayout() {
+import { Outlet } from 'react-router-dom';
+
+export const PodcastsLayout = () => {
   let { id } = useParams();
 
   const idFromContext = useSelector((state) => state.podcast)
@@ -32,14 +34,16 @@ export function EpisodeLayout() {
       invokeIdPodcastsAPI();
     }
   }, [dispatch]);
+
   return (
     <main>
-    <Header />
+      <Header isLoaded={ apiStatus === "pending" ? true : false } />
       <SC.LayoutPodcast>
         <PodcastCardDetail {...detailPodcast} />
-        <PodcastEpisode />
+        {idPodcasts.length > 0 && <PodcastCardDetailList {...idPodcasts[0]} />}
       </SC.LayoutPodcast>
-    <Outlet />
+      <Outlet />
     </main>
   )
 }
+
